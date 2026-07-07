@@ -134,7 +134,39 @@ h2{margin:0}
 p{color:var(--muted)}
 #search{display:block;width:min(900px,90%);margin:25px auto;padding:14px;border-radius:8px;border:1px solid #444;background:#20252d;color:#fff;font-size:18px}
 .section{width:min(1200px,95%);margin:20px auto;background:var(--panel);border-radius:10px;overflow:hidden}
-.section h2{padding:16px 20px;background:var(--panel2);cursor:pointer}
+.section h2{
+
+padding:18px 22px;
+
+background:var(--panel2);
+
+cursor:pointer;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+font-size:31px;
+
+transition:.25s;
+
+}
+
+.section h2:hover{
+
+background:#394352;
+
+}
+
+.arrow{
+
+font-size:22px;
+
+color:#d6b25e;
+
+}
 .content{display:none;padding:20px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:15px}
 .card{background:#2d3642;border-radius:8px;padding:15px;border-left:4px solid var(--accent)}
