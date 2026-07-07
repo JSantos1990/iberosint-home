@@ -1133,6 +1133,55 @@ block:"start"
 
 }
 
+ // ===========================================
+// FUNCIONES AUXILIARES DE CATEGORÍAS
+// ===========================================
+
+// Cierra todas las categorías
+function closeAllSections(){
+
+    const headers=document.querySelectorAll(".section h2");
+    const contents=document.querySelectorAll(".content");
+
+    contents.forEach((content,index)=>{
+
+        content.style.display="none";
+
+        const arrow=headers[index].querySelector(".arrow");
+
+        if(arrow){
+            arrow.innerHTML="▶";
+        }
+
+    });
+
+}
+
+// Abre una categoría
+function openSection(index){
+
+    const headers=document.querySelectorAll(".section h2");
+    const contents=document.querySelectorAll(".content");
+
+    closeAllSections();
+
+    contents[index].style.display="block";
+
+    const arrow=headers[index].querySelector(".arrow");
+
+    if(arrow){
+        arrow.innerHTML="▼";
+    }
+
+}
+
+// Devuelve todas las tarjetas
+function getCards(){
+
+    return document.querySelectorAll(".card");
+
+}
+
 
 </script>
 
