@@ -1198,6 +1198,64 @@ function getCards(){
 
 }
 
+ // ===========================================
+// BUSCADOR PROFESIONAL
+// ===========================================
+
+const search=document.getElementById("search");
+
+search.addEventListener("input",searchTools);
+
+function searchTools(){
+
+    const text=search.value.toLowerCase().trim();
+
+    const sections=document.querySelectorAll(".section");
+
+    if(text===""){
+
+        closeAllSections();
+
+        getCards().forEach(card=>{
+
+            card.style.display="block";
+
+        });
+
+        return;
+
+    }
+
+    sections.forEach((section,index)=>{
+
+        let found=false;
+
+        const cards=section.querySelectorAll(".card");
+
+        cards.forEach(card=>{
+
+            const match=card.innerText.toLowerCase().includes(text);
+
+            card.style.display=match?"block":"none";
+
+            if(match){
+
+                found=true;
+
+            }
+
+        });
+
+        if(found){
+
+            openSection(index);
+
+        }
+
+    });
+
+}
+
 
 </script>
 
