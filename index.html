@@ -1182,6 +1182,22 @@ function getCards(){
 
 }
 
+ function goSection(index){
+
+    const sections=document.querySelectorAll(".section");
+
+    openSection(index);
+
+    sections[index].scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"start"
+
+    });
+
+}
+
 
 </script>
 
