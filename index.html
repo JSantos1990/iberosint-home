@@ -196,7 +196,21 @@ de información.
 <input id="search" placeholder="🔍 Buscar herramienta...">
 
 <div class="section">
-<h2 onclick="toggle(this)">📁 Motores OSINT de Infraestructura</h2>
+<h2 onclick="toggle(this)" class="section-title">
+
+<span>
+
+📁 Motores OSINT de Infraestructura
+
+</span>
+
+<span class="arrow">
+
+▶
+
+</span>
+
+</h2>
 <div class="content">
 <div class="cards">
 
@@ -260,8 +274,20 @@ de información.
 
  <div class="section">
 
-<h2 onclick="toggle(this)">
+<h2 onclick="toggle(this)" class="section-title">
+
+<span>
+
 🌐 Inteligencia de dominios y DNS
+
+</span>
+
+<span class="arrow">
+
+▶
+
+</span>
+
 </h2>
 
 <div class="content">
@@ -330,8 +356,20 @@ de información.
 
  <div class="section">
 
-<h2 onclick="toggle(this)">
+<h2 onclick="toggle(this)" class="section-title">
+
+<span>
+
 🦠 Análisis de malware y archivos
+
+</span>
+
+<span class="arrow">
+
+▶
+
+</span>
+
 </h2>
 
 <div class="content">
@@ -397,11 +435,23 @@ IBEROSINT · Versión preliminar · Compatible con Tor Browser
 </footer>
 
 <script>
-document.querySelectorAll(".content")[0].style.display="block";
 
 function toggle(el){
- const c=el.nextElementSibling;
- c.style.display=(c.style.display==="block")?"none":"block";
+
+const contenido=el.nextElementSibling;
+
+const abierto=contenido.style.display==="block";
+
+contenido.style.display=abierto?"none":"block";
+
+const flecha=el.querySelector(".arrow");
+
+if(flecha){
+
+flecha.innerHTML=abierto?"▶":"▼";
+
+}
+
 }
 
 const search=document.getElementById("search");
