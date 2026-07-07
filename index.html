@@ -196,6 +196,53 @@ color:#d6b25e;
 .card{background:#2d3642;border-radius:8px;padding:15px;border-left:4px solid var(--accent)}
 .card:hover{transform:translateY(-2px);transition:.2s}
 .card a{display:inline-block;margin-top:10px;text-decoration:none;background:var(--accent);color:#fff;padding:8px 12px;border-radius:5px}
+ #quickNav{
+
+width:min(1200px,95%);
+
+margin:auto;
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:12px;
+
+margin-bottom:25px;
+
+}
+
+#quickNav button{
+
+background:#20252d;
+
+border:none;
+
+color:white;
+
+padding:12px 18px;
+
+border-radius:8px;
+
+cursor:pointer;
+
+font-size:15px;
+
+transition:.25s;
+
+border-left:4px solid #b71c1c;
+
+}
+
+#quickNav button:hover{
+
+background:#b71c1c;
+
+transform:translateY(-2px);
+
+}
 footer{text-align:center;padding:25px;color:#888}
 </style>
 </head>
@@ -250,6 +297,28 @@ de información.
 </header>
 
 <input id="search" placeholder="🔍 Buscar herramienta...">
+
+ <div id="quickNav">
+
+<button onclick="goSection(0)">📡 Infraestructura</button>
+
+<button onclick="goSection(1)">🌐 DNS</button>
+
+<button onclick="goSection(2)">🦠 Malware</button>
+
+<button onclick="goSection(3)">👤 Leaks</button>
+
+<button onclick="goSection(4)">📱 SOCMINT</button>
+
+<button onclick="goSection(5)">📍 Geo</button>
+
+<button onclick="goSection(6)">🧅 Onion</button>
+
+<button onclick="goSection(7)">🕵 HUMINT</button>
+
+<button onclick="goSection(8)">🧠 Correlación</button>
+
+</div>
 
 <div class="section">
 <h2 onclick="toggle(this)" class="section-title">
@@ -1019,6 +1088,48 @@ if(flecha){
 flecha.innerHTML=abierto?"▶":"▼";
 
 }
+
+}
+
+ function goSection(index){
+
+const sections=document.querySelectorAll(".section");
+
+const headers=document.querySelectorAll(".section h2");
+
+const contents=document.querySelectorAll(".content");
+
+contents.forEach((c,i)=>{
+
+c.style.display="none";
+
+const arrow=headers[i].querySelector(".arrow");
+
+if(arrow){
+
+arrow.innerHTML="▶";
+
+}
+
+});
+
+contents[index].style.display="block";
+
+const arrow=headers[index].querySelector(".arrow");
+
+if(arrow){
+
+arrow.innerHTML="▼";
+
+}
+
+sections[index].scrollIntoView({
+
+behavior:"smooth",
+
+block:"start"
+
+});
 
 }
 
