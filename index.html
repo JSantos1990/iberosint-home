@@ -1073,75 +1073,25 @@ IBEROSINT · Versión preliminar · Compatible con Tor Browser
 
 <script>
 
-function toggle(el){
+// ======================================================
+// IBEROTOR v1.0
+// Motor principal
+// ======================================================
 
-const contenido=el.nextElementSibling;
+//--------------------------------------------------------
+// Obtener elementos
+//--------------------------------------------------------
 
-const abierto=contenido.style.display==="block";
+const search = document.getElementById("search");
+const sections = document.querySelectorAll(".section");
+const headers = document.querySelectorAll(".section h2");
+const contents = document.querySelectorAll(".content");
 
-contenido.style.display=abierto?"none":"block";
+//--------------------------------------------------------
+// Cerrar todas las categorías
+//--------------------------------------------------------
 
-const flecha=el.querySelector(".arrow");
-
-if(flecha){
-
-flecha.innerHTML=abierto?"▶":"▼";
-
-}
-
-}
-
- function goSection(index){
-
-const sections=document.querySelectorAll(".section");
-
-const headers=document.querySelectorAll(".section h2");
-
-const contents=document.querySelectorAll(".content");
-
-contents.forEach((c,i)=>{
-
-c.style.display="none";
-
-const arrow=headers[i].querySelector(".arrow");
-
-if(arrow){
-
-arrow.innerHTML="▶";
-
-}
-
-});
-
-contents[index].style.display="block";
-
-const arrow=headers[index].querySelector(".arrow");
-
-if(arrow){
-
-arrow.innerHTML="▼";
-
-}
-
-sections[index].scrollIntoView({
-
-behavior:"smooth",
-
-block:"start"
-
-});
-
-}
-
- // ===========================================
-// FUNCIONES AUXILIARES DE CATEGORÍAS
-// ===========================================
-
-// Cierra todas las categorías
 function closeAllSections(){
-
-    const headers=document.querySelectorAll(".section h2");
-    const contents=document.querySelectorAll(".content");
 
     contents.forEach((content,index)=>{
 
@@ -1150,18 +1100,20 @@ function closeAllSections(){
         const arrow=headers[index].querySelector(".arrow");
 
         if(arrow){
+
             arrow.innerHTML="▶";
+
         }
 
     });
 
 }
 
-// Abre una categoría
-function openSection(index){
+//--------------------------------------------------------
+// Abrir una categoría
+//--------------------------------------------------------
 
-    const headers=document.querySelectorAll(".section h2");
-    const contents=document.querySelectorAll(".content");
+function openSection(index){
 
     closeAllSections();
 
@@ -1170,21 +1122,58 @@ function openSection(index){
     const arrow=headers[index].querySelector(".arrow");
 
     if(arrow){
+
         arrow.innerHTML="▼";
+
     }
 
 }
 
-// Devuelve todas las tarjetas
-function getCards(){
+//--------------------------------------------------------
+// Click sobre categoría
+//--------------------------------------------------------
 
-    return document.querySelectorAll(".card");
+function toggle(el){
+
+    const contenido=el.nextElementSibling;
+
+    const abierto=contenido.style.display==="block";
+
+    if(abierto){
+
+        contenido.style.display="none";
+
+        const arrow=el.querySelector(".arrow");
+
+        if(arrow){
+
+            arrow.innerHTML="▶";
+
+        }
+
+        return;
+
+    }
+
+    closeAllSections();
+
+    contenido.style.display="block";
+
+    const arrow=el.querySelector(".arrow");
+
+    if(arrow){
+
+        arrow.innerHTML="▼";
+
+    }
 
 }
 
- function goSection(index){
+//--------------------------------------------------------
+// Botones rápidos superiores
+//--------------------------------------------------------
 
-    const sections=document.querySelectorAll(".section");
+function goSection(index){
 
     openSection(index);
 
@@ -1198,27 +1187,29 @@ function getCards(){
 
 }
 
- // ===========================================
-// BUSCADOR PROFESIONAL
-// ===========================================
-
-const search=document.getElementById("search");
+//--------------------------------------------------------
+// Buscador
+//--------------------------------------------------------
 
 search.addEventListener("input",searchTools);
 
 function searchTools(){
 
-    const text=search.value.toLowerCase().trim();
+    const text=search.value.trim().toLowerCase();
 
-    const sections=document.querySelectorAll(".section");
+    // Reinicio completo
 
     if(text===""){
 
         closeAllSections();
 
-        getCards().forEach(card=>{
+        document.querySelectorAll(".card").forEach(card=>{
 
             card.style.display="block";
+
+            card.style.borderLeft="4px solid #b71c1c";
+
+            card.style.boxShadow="none";
 
         });
 
@@ -1226,33 +1217,58 @@ function searchTools(){
 
     }
 
-    sections.forEach((section,index)=>{
+    let firstCard=null;
 
-        let found=false;
+    let firstSection=null;
+
+    sections.forEach((section,index)=>{
 
         const cards=section.querySelectorAll(".card");
 
+        let found=false;
+
         cards.forEach(card=>{
 
-            const match=card.innerText.toLowerCase().includes(text);
+            const visible=card.innerText.toLowerCase().includes(text);
 
-            card.style.display=match?"block":"none";
+            card.style.display=visible?"block":"none";
 
-            if(match){
+            card.style.borderLeft="4px solid #b71c1c";
+            card.style.boxShadow="none";
+
+            if(visible){
 
                 found=true;
+
+                if(firstCard===null){
+
+                    firstCard=card;
+                    firstSection=index;
+
+                }
 
             }
 
         });
 
-        if(found){
-
-            openSection(index);
-
-        }
-
     });
+
+    if(firstSection!==null){
+
+        openSection(firstSection);
+
+        firstCard.style.borderLeft="4px solid gold";
+        firstCard.style.boxShadow="0 0 20px rgba(255,215,0,.35)";
+
+        firstCard.scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"center"
+
+        });
+
+    }
 
 }
 
