@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IberOSINT</title>
+<style>
+:root{
+--bg:#111418;--panel:#1c222b;--panel2:#262f3a;--accent:#b71c1c;--text:#f2f2f2;--muted:#b9c0c8;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif}
+header{padding:35px 20px;text-align:center;background:linear-gradient(180deg,#171b22,#111418);border-bottom:3px solid var(--accent)}
+h1{margin:0;font-size:48px;letter-spacing:3px}
+h2{margin:0}
+p{color:var(--muted)}
+#search{display:block;width:min(900px,90%);margin:25px auto;padding:14px;border-radius:8px;border:1px solid #444;background:#20252d;color:#fff;font-size:18px}
+.section{width:min(1200px,95%);margin:20px auto;background:var(--panel);border-radius:10px;overflow:hidden}
+.section h2{padding:16px 20px;background:var(--panel2);cursor:pointer}
+.content{display:none;padding:20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:15px}
+.card{background:#2d3642;border-radius:8px;padding:15px;border-left:4px solid var(--accent)}
+.card:hover{transform:translateY(-2px);transition:.2s}
+.card a{display:inline-block;margin-top:10px;text-decoration:none;background:var(--accent);color:#fff;padding:8px 12px;border-radius:5px}
+footer{text-align:center;padding:25px;color:#888}
+</style>
+</head>
+<body>
+
+<header>
+<h1>IBEROSINT</h1>
+<p>Plataforma de Inteligencia en Fuentes Abiertas</p>
+<p>Proyecto personal OSINT</p>
+</header>
+
+<input id="search" placeholder="🔍 Buscar herramienta...">
+
+<div class="section">
+<h2 onclick="toggle(this)">📁 Motores OSINT de Infraestructura</h2>
+<div class="content">
+<div class="cards">
+
+<div class="card">
+<h3>🛰 Shodan</h3>
+<p>Buscador de dispositivos conectados.</p>
+<a href="https://www.shodan.io" target="_blank" rel="noopener noreferrer">Abrir herramienta</a>
+</div>
+
+<div class="card">
+<h3>🌍 Censys</h3>
+<p>Inventario global de Internet.</p>
+<a href="https://search.censys.io" target="_blank" rel="noopener noreferrer">Abrir herramienta</a>
+</div>
+
+<div class="card">
+<h3>📡 Onyphe</h3>
+<p>Motor OSINT de infraestructura.</p>
+<a href="https://www.onyphe.io" target="_blank" rel="noopener noreferrer">Abrir herramienta</a>
+</div>
+
+<div class="card">
+<h3>🔍 FOFA</h3>
+<p>Búsqueda de activos.</p>
+<a href="https://fofa.info" target="_blank" rel="noopener noreferrer">Abrir herramienta</a>
+</div>
+
+<div class="card">
+<h3>🌐 ZoomEye</h3>
+<p>Motor OSINT.</p>
+<a href="https://www.zoomeye.org" target="_blank" rel="noopener noreferrer">Abrir herramienta</a>
+</div>
+
+<div class="card">
+<h3>🧭 Netlas</h3>
+<p>Inventario de servicios.</p>
+<a href="https://netlas.io" target="_blank" rel="noopener noreferrer">Abrir herramienta</a>
+</div>
+
+<div class="card">
+<h3>⚡ BinaryEdge</h3>
+<p>Escaneo global.</p>
+<a href="https://www.binaryedge.io" target="_blank" rel="noopener noreferrer">Abrir herramienta</a>
+</div>
+
+<div class="card">
+<h3>🛡 LeakIX</h3>
+<p>Exposición de servicios.</p>
+<a href="https://leakix.net" target="_blank" rel="noopener noreferrer">Abrir herramienta</a>
+</div>
+
+<div class="card">
+<h3>📧 Hunter.io</h3>
+<p>Búsqueda de correos.</p>
+<a href="https://hunter.io" target="_blank" rel="noopener noreferrer">Abrir herramienta</a>
+</div>
+
+</div>
+</div>
+</div>
+
+<footer>
+IBEROSINT · Versión preliminar · Compatible con Tor Browser
+</footer>
+
+<script>
+document.querySelectorAll(".content")[0].style.display="block";
+
+function toggle(el){
+ const c=el.nextElementSibling;
+ c.style.display=(c.style.display==="block")?"none":"block";
+}
+
+const search=document.getElementById("search");
+search.addEventListener("input",()=>{
+ const txt=search.value.toLowerCase();
+ document.querySelectorAll(".card").forEach(card=>{
+   card.style.display=card.innerText.toLowerCase().includes(txt)?"block":"none";
+ });
+});
+</script>
+
+</body>
+</html>
