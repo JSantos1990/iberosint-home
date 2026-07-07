@@ -1133,13 +1133,7 @@ block:"start"
 
 }
 
-const search=document.getElementById("search");
-search.addEventListener("input",()=>{
- const txt=search.value.toLowerCase();
- document.querySelectorAll(".card").forEach(card=>{
-   card.style.display=card.innerText.toLowerCase().includes(txt)?"block":"none";
- });
-});
+
 </script>
 
 </body>
