@@ -38,6 +38,6 @@ The homepage provides quick access to infrastructure search engines, malware ana
 
 ## Author
 
-Jou Santos
+Jorge Santos
 
 Master's Degree in Cybersecurity
