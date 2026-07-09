@@ -1823,11 +1823,35 @@ document.getElementById("btnFavoritos")
 
         const boton=document.createElement("button");
 
-        boton.className="favorite-item";
+boton.className="favorite-item";
 
-        boton.innerText=nombre;
+boton.innerText=nombre;
 
-        listaFavoritos.appendChild(boton);
+// Buscar la tarjeta correspondiente
+const tarjeta=[...document.querySelectorAll(".card")]
+.find(card=>{
+
+    return card.querySelector("h3")
+    .innerText===nombre;
+
+});
+
+if(tarjeta){
+
+    const enlace=tarjeta.querySelector("a");
+
+    boton.addEventListener("click",()=>{
+
+        window.open(
+            enlace.href,
+            "_blank"
+        );
+
+    });
+
+}
+
+listaFavoritos.appendChild(boton);
 
     });
 
