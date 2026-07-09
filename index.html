@@ -244,35 +244,92 @@ transform:translateY(-2px);
 
 }
 
- <!-- ================================================= -->
-<!-- CENTRO DE TRABAJO -->
-<!-- ================================================= -->
+ /*======================================================*/
+/* PANEL SUPERIOR */
+/*======================================================*/
 
-<section id="panel-superior">
+#panel-superior{
 
-    <div class="panel">
+width:min(1200px,95%);
 
-        <h2>🧰 Centro de trabajo</h2>
+margin:35px auto;
 
-        <div class="panel-buttons">
+}
 
-            <button id="btnFavoritos">
-                ⭐ Favoritos
-            </button>
+.panel{
 
-            <button id="btnRecientes">
-                🕓 Últimas
-            </button>
+background:#1b222c;
 
-            <button id="btnStats">
-                📊 Estadísticas
-            </button>
+border:1px solid #2d3642;
 
-        </div>
+border-radius:14px;
 
-    </div>
+padding:22px;
 
-</section>
+margin-bottom:25px;
+
+}
+
+.panel h2{
+
+text-align:center;
+
+margin-bottom:18px;
+
+font-size:24px;
+
+}
+
+.panel-buttons{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:18px;
+
+}
+
+.panel-buttons button{
+
+background:#273241;
+
+color:white;
+
+border:none;
+
+padding:14px 22px;
+
+border-radius:10px;
+
+font-size:16px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.25s;
+
+min-width:190px;
+
+border-left:4px solid #b71c1c;
+
+}
+
+.panel-buttons button:hover{
+
+background:#354354;
+
+transform:translateY(-3px);
+
+}
+
+ 
+
+ 
+
 
 </style>
 </head>
@@ -325,6 +382,38 @@ de información.
 </div>
 
 </header>
+
+ <section id="panel-superior">
+
+<div class="panel">
+
+<h2>🧰 Centro de trabajo</h2>
+
+<div class="panel-buttons">
+
+<button id="btnFavoritos">
+
+⭐ Favoritos
+
+</button>
+
+<button id="btnRecientes">
+
+🕓 Últimas utilizadas
+
+</button>
+
+<button id="btnStats">
+
+📊 Estadísticas
+
+</button>
+
+</div>
+
+</div>
+
+</section>
 
 <input id="search" placeholder="🔍 Buscar herramienta...">
 
