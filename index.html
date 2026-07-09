@@ -1734,6 +1734,45 @@ document.querySelectorAll(".favorite").forEach(star=>{
 
 });
 
+// =====================================
+// PANEL FAVORITOS
+// =====================================
+
+const panelFavoritos =
+document.getElementById("panelFavoritos");
+
+const listaFavoritos =
+document.getElementById("listaFavoritos");
+
+document.getElementById("btnFavoritos")
+.addEventListener("click",()=>{
+
+    if(panelFavoritos.style.display==="block"){
+
+        panelFavoritos.style.display="none";
+
+        return;
+
+    }
+
+    panelFavoritos.style.display="block";
+
+    listaFavoritos.innerHTML="";
+
+    favoritos.forEach(nombre=>{
+
+        const boton=document.createElement("button");
+
+        boton.className="favorite-item";
+
+        boton.innerText=nombre;
+
+        listaFavoritos.appendChild(boton);
+
+    });
+
+});
+
 
 </script>
 
