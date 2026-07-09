@@ -719,7 +719,11 @@ Acceso rápido a tus asistentes de Inteligencia Artificial
 <div class="cards">
 
 <div class="card">
+<div class="card-header">
 <h3>🛰 Shodan</h3>
+<span class="favorite">☆</span>
+</div>
+ 
 <p>Buscador de dispositivos conectados.</p>
 <a href="https://www.shodan.io" target="_blank" rel="noopener noreferrer">Abrir herramienta</a>
 </div>
@@ -1460,6 +1464,14 @@ const sections = document.querySelectorAll(".section");
 const headers = document.querySelectorAll(".section h2");
 const contents = document.querySelectorAll(".content");
 
+ // ======================================
+// FAVORITOS
+// ======================================
+
+let favoritos = JSON.parse(
+localStorage.getItem("iberotor_favoritos")
+) || [];
+
 //--------------------------------------------------------
 // Cerrar todas las categorías
 //--------------------------------------------------------
@@ -1662,6 +1674,57 @@ firstCard.style.boxShadow="0 0 25px gold";
     }
 
 }
+
+ // ======================================
+// SISTEMA DE FAVORITOS
+// ======================================
+
+document.querySelectorAll(".favorite").forEach(star=>{
+
+    const nombre=
+    star.parentElement.querySelector("h3").innerText;
+
+    if(favoritos.includes(nombre)){
+
+        star.innerHTML="★";
+
+        star.style.color="gold";
+
+    }
+
+    star.addEventListener("click",(e)=>{
+
+        e.stopPropagation();
+
+        const nombre=
+        star.parentElement.querySelector("h3").innerText;
+
+        if(favoritos.includes(nombre)){
+
+            favoritos=favoritos.filter(x=>x!==nombre);
+
+            star.innerHTML="☆";
+
+            star.style.color="#8d96a3";
+
+        }else{
+
+            favoritos.push(nombre);
+
+            star.innerHTML="★";
+
+            star.style.color="gold";
+
+        }
+
+        localStorage.setItem(
+            "iberotor_favoritos",
+            JSON.stringify(favoritos)
+        );
+
+    });
+
+});
 
 
 </script>
