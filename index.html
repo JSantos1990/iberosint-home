@@ -326,12 +326,105 @@ transform:translateY(-3px);
 
 }
 
- 
+ /*======================================================*/
+/* PANEL IA */
+/*======================================================*/
+
+#panel-ia{
+
+width:min(1200px,95%);
+
+margin:25px auto;
+
+}
+
+.panel-subtitle{
+
+text-align:center;
+
+color:#9aa6b2;
+
+margin-bottom:25px;
+
+}
+
+.ai-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+gap:18px;
+
+}
+
+.ai-card{
+
+background:#273241;
+
+border-radius:12px;
+
+padding:18px;
+
+text-decoration:none;
+
+color:white;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+transition:.25s;
+
+border-top:4px solid #b71c1c;
+
+}
+
+.ai-card:hover{
+
+transform:translateY(-4px);
+
+background:#344154;
+
+}
+
+.ai-card img{
+
+width:52px;
+
+height:52px;
+
+object-fit:contain;
+
+margin-bottom:12px;
+
+}
+
+.ai-card span{
+
+font-weight:bold;
+
+font-size:17px;
+
+margin-bottom:6px;
+
+}
+
+.ai-card small{
+
+color:#b7c0cb;
+
+text-align:center;
+
+font-size:13px;
+
+}
 
  
 
-
-</style>
+ </style>
 </head>
 <body>
 
@@ -408,6 +501,110 @@ de información.
 📊 Estadísticas
 
 </button>
+
+</div>
+
+</div>
+
+</section>
+
+ <!-- ================================================= -->
+<!-- ASISTENTES IA -->
+<!-- ================================================= -->
+
+<section id="panel-ia">
+
+<div class="panel">
+
+<h2>🤖 Asistentes IA</h2>
+
+<p class="panel-subtitle">
+
+Acceso rápido a tus asistentes de Inteligencia Artificial
+
+</p>
+
+<div class="ai-grid">
+
+<a href="https://chat.openai.com" target="_blank" class="ai-card">
+
+<img src="images/ai/chatgpt.png" alt="ChatGPT">
+
+<span>ChatGPT</span>
+
+<small>Asistente general</small>
+
+</a>
+
+<a href="https://claude.ai" target="_blank" class="ai-card">
+
+<img src="images/ai/claude.png" alt="Claude">
+
+<span>Claude</span>
+
+<small>Análisis y redacción</small>
+
+</a>
+
+<a href="https://gemini.google.com" target="_blank" class="ai-card">
+
+<img src="images/ai/gemini.png" alt="Gemini">
+
+<span>Gemini</span>
+
+<small>Ecosistema Google</small>
+
+</a>
+
+<a href="https://copilot.microsoft.com" target="_blank" class="ai-card">
+
+<img src="images/ai/copilot.png" alt="Copilot">
+
+<span>Copilot</span>
+
+<small>Programación</small>
+
+</a>
+
+<a href="https://www.perplexity.ai" target="_blank" class="ai-card">
+
+<img src="images/ai/perplexity.png" alt="Perplexity">
+
+<span>Perplexity</span>
+
+<small>Investigación web</small>
+
+</a>
+
+<a href="https://chat.deepseek.com" target="_blank" class="ai-card">
+
+<img src="images/ai/deepseek.png" alt="DeepSeek">
+
+<span>DeepSeek</span>
+
+<small>Código e IA</small>
+
+</a>
+
+<a href="https://grok.com" target="_blank" class="ai-card">
+
+<img src="images/ai/grok.png" alt="Grok">
+
+<span>Grok</span>
+
+<small>Actualidad</small>
+
+</a>
+
+<a href="https://chat.mistral.ai" target="_blank" class="ai-card">
+
+<img src="images/ai/mistral.png" alt="Mistral">
+
+<span>Mistral</span>
+
+<small>LLM europeo</small>
+
+</a>
 
 </div>
 
