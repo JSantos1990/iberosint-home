@@ -244,99 +244,36 @@ transform:translateY(-2px);
 
 }
 
-/*======================================================*/
-/* WORKSPACE */
-/*======================================================*/
+ <!-- ================================================= -->
+<!-- CENTRO DE TRABAJO -->
+<!-- ================================================= -->
 
-#workspace{
+<section id="panel-superior">
 
-width:min(1200px,95%);
+    <div class="panel">
 
-margin:35px auto;
+        <h2>🧰 Centro de trabajo</h2>
 
-background:#1b222c;
+        <div class="panel-buttons">
 
-border-radius:14px;
+            <button id="btnFavoritos">
+                ⭐ Favoritos
+            </button>
 
-padding:28px;
+            <button id="btnRecientes">
+                🕓 Últimas
+            </button>
 
-border:1px solid #2c3642;
+            <button id="btnStats">
+                📊 Estadísticas
+            </button>
 
-}
+        </div>
 
-#workspace h2{
+    </div>
 
-margin:0;
+</section>
 
-text-align:center;
-
-font-size:30px;
-
-}
-
-.workspace-subtitle{
-
-text-align:center;
-
-margin-top:10px;
-
-margin-bottom:30px;
-
-color:#9aa6b2;
-
-}
-
-.workspace-grid{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:20px;
-
-}
-
-.workspace-card{
-
-background:#2a3441;
-
-padding:22px;
-
-border-radius:12px;
-
-text-align:center;
-
-font-size:28px;
-
-cursor:pointer;
-
-transition:.25s;
-
-border-left:4px solid var(--accent);
-
-}
-
-.workspace-card span{
-
-display:block;
-
-margin-top:12px;
-
-font-size:17px;
-
-font-weight:bold;
-
-}
-
-.workspace-card:hover{
-
-transform:translateY(-4px);
-
-background:#313d4d;
-
-}
- 
-footer{text-align:center;padding:25px;color:#888}
 </style>
 </head>
 <body>
