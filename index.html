@@ -1264,13 +1264,17 @@ firstCard.style.borderLeft="6px solid gold";
 firstCard.style.boxShadow="0 0 25px gold";
         firstCard.style.boxShadow="0 0 20px rgba(255,215,0,.35)";
 
-        firstCard.scrollIntoView({
+        setTimeout(()=>{
 
-            behavior:"smooth",
+    firstCard.scrollIntoView({
 
-            block:"center"
+        behavior:"smooth",
 
-        });
+        block:"center"
+
+    });
+
+},250);
 
     }
 
