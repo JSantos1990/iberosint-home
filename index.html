@@ -1854,25 +1854,11 @@ if(tarjeta){
 
     boton.addEventListener("click",()=>{
 
-    recientes = recientes.filter(
-        x=>x.nombre!==nombre
-    );
+    registrarReciente(
 
-    recientes.unshift({
+        nombre,
 
-        nombre:nombre,
-
-        url:enlace.href
-
-    });
-
-    recientes = recientes.slice(0,5);
-
-    localStorage.setItem(
-
-        "iberotor_recientes",
-
-        JSON.stringify(recientes)
+        enlace.href
 
     );
 
