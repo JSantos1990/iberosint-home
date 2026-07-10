@@ -1541,6 +1541,38 @@ const headers = document.querySelectorAll(".section h2");
 const contents = document.querySelectorAll(".content");
 
  // ======================================
+// REGISTRAR CUALQUIER ENLACE ABIERTO
+// ======================================
+
+document.querySelectorAll(".card a, .ai-card").forEach(enlace=>{
+
+    enlace.addEventListener("click",()=>{
+
+        let nombre="";
+
+        if(enlace.classList.contains("ai-card")){
+
+            nombre=enlace.querySelector("span").innerText;
+
+        }else{
+
+            nombre=enlace.parentElement.querySelector("h3").innerText;
+
+        }
+
+        registrarReciente(
+
+            nombre,
+
+            enlace.href
+
+        );
+
+    });
+
+});
+
+ // ======================================
 // FAVORITOS
 // ======================================
 
